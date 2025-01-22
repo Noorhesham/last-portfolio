@@ -2,13 +2,12 @@
 import React, { useEffect } from "react";
 import { HiOutlineBars2 } from "react-icons/hi2";
 import { NAV_LINKS } from "./NavBar";
-import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import gsap from "gsap";
-import Image from "next/image";
-import Logo from "./Logo";
+
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useSmoothScroll } from "../context/ScrollProviderContext";
+import LinkTransition from "./LinkTransition";
 
 const PhoneNav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -16,6 +15,7 @@ const PhoneNav = () => {
   const { isMobile } = useIsMobile();
   const handleOpen = () => {
     if (!locoScroll) return;
+    locoScroll?.stop();
     setIsOpen(true);
     locoScroll?.start();
 
@@ -23,13 +23,13 @@ const PhoneNav = () => {
       .timeline()
       .to(".bgbtn", { backgroundColor: "black" })
       .to(".slide2", { translateX: 0 })
-      .to(".link", { opacity: 1, stagger: { amount: 0.3 } })
+      .to(".link", { opacity: 0.6, stagger: { amount: 0.3 } })
       .duration(1);
   };
   const handleClose = () => {
     if (!locoScroll) return;
     console.log(locoScroll);
-    locoScroll?.stop();
+    locoScroll?.start();
     gsap
       .timeline({ onComplete: () => setIsOpen(false) })
       .to(".bgbtn", { backgroundColor: "#5629d9" })
@@ -57,17 +57,24 @@ const PhoneNav = () => {
       </div>
       {
         <div
-          className="slide2 flex items-center text-2xl cursor-pointer inset-0 absolute h-screen z-[89] bg-[#555555] translate-x-[100%] 
+          className="slide2 flex items-center text-2xl cursor-pointer inset-0 absolute h-screen z-[89]  bg-mainBg translate-x-[100%] 
     mdg:hidden  w-full"
         >
           {/* <div className=" w-[80%] h-full absolute right-0 top-10">
             <Image src={"/bg-mobile.svg"} alt="" fill className=" object-contain" />
           </div> */}
-          <ul className="flex items-start ml-4 justify-center flex-col gap-0">
+          <ul className="flex mx-auto lg:ml-40 items-start  justify-center flex-col gap-5">
             {" "}
-            {NAV_LINKS.map((link) => (
-              <li className="link opacity-0 text-white text-4xl uppercase" key={link}>
-                <Link href="/">{link}</Link>
+            {NAV_LINKS.map((link, i) => (
+              <li
+                onClick={handleClose}
+                className={`link 
+               hover:opacity-100 ${`lg:ml-[${
+                 i * 10
+               }px]`} hover:translate-x-4 duration-150 opacity-0 text-white text-5xl lg:text-7xl uppercase`}
+                key={link.link}
+              >
+                <LinkTransition href={link.link}>{link.text}</LinkTransition>
               </li>
             ))}
           </ul>

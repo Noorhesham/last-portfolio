@@ -7,7 +7,8 @@ import { cn } from "@/app/lib/utils";
  * Mobile navbar is better positioned at bottom right.
  **/
 
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import { GoSidebarCollapse } from "react-icons/go";
+
 import { AnimatePresence, MotionValue, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -75,7 +76,7 @@ const FloatingDockMobile = ({
         onClick={() => setOpen(!open)}
         className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <GoSidebarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
       </button>
     </div>
   );

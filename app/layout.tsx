@@ -6,6 +6,10 @@ import "locomotive-scroll/src/locomotive-scroll.scss";
 import { LoaderProvider } from "./context/LoaderProvider";
 import { SmoothScrollProvider } from "./context/ScrollProviderContext";
 import NavBar from "./components/NavBar";
+import PageTransition from "./components/PageTransition";
+import CustomCursor from "./components/CustomCursor";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 const belanosima = Belanosima({
   subsets: ["latin"],
   weight: ["400", "700", "700"],
@@ -39,11 +43,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${belanosima.className} dark antialiased`}>
+        <CustomCursor />
         <LoaderProvider>
-          <SmoothScrollProvider>
-            <NavBar />
-            <main className="main-container">{children}</main>
-          </SmoothScrollProvider>
+          <>
+            <PageTransition />
+            <SmoothScrollProvider>
+              <NavBar />
+              <main className="main-container">
+                {children} 
+                <Contact />
+                <Footer />
+              </main>
+            </SmoothScrollProvider>
+          </>
         </LoaderProvider>
       </body>
     </html>

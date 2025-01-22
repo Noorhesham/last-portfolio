@@ -5,6 +5,9 @@ import Paragraph from "./Paragraph";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
+import { MdEmail } from "react-icons/md";
+import { PhoneCall } from "lucide-react";
+import SpaceBtn from "./SpaceBtn";
 
 const Footer = () => {
   const firstText = React.useRef<HTMLParagraphElement>(null);
@@ -43,24 +46,40 @@ const Footer = () => {
           <MaxWidthWrapper className=" h-full items-start grid lg:grid-cols-2 grid-cols-1 lg:gap-0 gap-5">
             <div className="flex h-full px-5 flex-col">
               <div className="flex   items-center  justify-between">
-                <div className="  max-w-sm text-3xl">OBRUCHEVA STR. 23KZ 13TH FLOOR</div>
-                <button className="  py-1 px-10 border border-white rounded-full">MAP</button>
+                <div className="  max-w-sm text-3xl">HEAL THE WORLD</div>
+                <SpaceBtn>
+                  <Link href="mailto:noordragon2004@gmail.com" className=" text-white z-20">
+                    Contact Me
+                  </Link>
+                </SpaceBtn>
               </div>
               <div className=" mt-auto flex justify-between">
-                <div className=" uppercase  flex flex-col ">
-                  <p>Sales office</p>
-                  <span>Every day from 09:00 - 21:00</span>
+                <div className="   flex flex-col ">
+                  <a
+                    href="mailto:noordragon2004@gmail.com"
+                    className="flex hover:text-maincolor2 hover:underline duration-150 items-center gap-2 text-white hover:underline"
+                  >
+                    <MdEmail className=" w-4 h-4" />
+                    noordragon2004@gmail.com
+                  </a>
+                  <a
+                    href="tel:+201145838187"
+                    className="flex  hover:text-maincolor2 hover:underline duration-150  items-center gap-2 text-white hover:underline"
+                  >
+                    <PhoneCall className=" w-4 h-4" />
+                    +20 114 583 81 87
+                  </a>{" "}
                 </div>
                 <div className="flex gap-3">
                   <Link
                     target="_blank"
-                    className="flex items-center justify-center"
+                    className=" hover:text-maincolor2 hover:underline duration-150  flex items-center justify-center"
                     href="https://web.facebook.com/profile.php?id=100006306765558"
                   >
                     <FaFacebook className="w-5 h-5" />
                   </Link>{" "}
                   <Link
-                    className="flex items-center justify-center"
+                    className=" hover:text-maincolor2 hover:underline duration-150  flex items-center justify-center"
                     target="_blank"
                     href="https://www.instagram.com/noorhesham174/"
                   >
@@ -68,12 +87,15 @@ const Footer = () => {
                   </Link>{" "}
                   <Link
                     target="_blank"
-                    className="flex items-center justify-center"
+                    className="  hover:text-maincolor2 hover:underline duration-150  flex items-center justify-center"
                     href="https://www.linkedin.com/in/noor-elgendy-0aa84b207/"
                   >
                     <FaLinkedin className="w-5 h-5" />
                   </Link>
-                  <Link className="flex items-center justify-center" href="https://www.youtube.com/@noorboi6706">
+                  <Link
+                    className="  hover:text-maincolor2 hover:underline duration-150  flex items-center justify-center"
+                    href="https://www.youtube.com/@noorboi6706"
+                  >
                     <FaYoutube className="w-5 h-5" />
                   </Link>
                 </div>
@@ -82,12 +104,14 @@ const Footer = () => {
             <div className="px-5   flex  border-l pl-4 h-full flex-col">
               <Paragraph
                 height="h-8"
-                className="text-white border-gray-50 opacity-100"
-                text="Right Mind is a leading company in the real estate development sector, providing innovative and effective solutions to meet the demands of the modern real estate market. We focus on quality, modern designs, and sustainability, striving to balance luxury with functionality across all our projects."
+                className="text-white lg:text-xl border-gray-50 opacity-100"
+                text="Animations ? Fullstack ? <br> Backend ? Just call me ! I will grant your wish!"
               />
               <div className=" mt-auto flex flex-col ">
-                <p className="uppercase ">©Team Group</p>
-                <span>Right Mind © All Rights Reserved - 2024</span>
+                <Link href="https://noor-hesham-boi.io/" className="uppercase ">
+                  ©Noor Boi
+                </Link>
+                <span>Noor Hesham © All Rights Reserved - 2025</span>
               </div>
             </div>
           </MaxWidthWrapper>

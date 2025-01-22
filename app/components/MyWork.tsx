@@ -15,6 +15,7 @@ import AnimatedImage from "./AnimatedImage";
 import { useIsMobile } from "../hooks/useIsMobile";
 import WorkPhone from "./WorkPhone";
 import Tech from "./Tech";
+import LinkTransition from "./LinkTransition";
 const MyWork = () => {
   const [index, setIndex] = React.useState(0);
   const { isMobile } = useIsMobile();
@@ -119,9 +120,10 @@ const MyWork = () => {
           </MaxWidthWrapper>
           <MaxWidthWrapper className="  z-40 flex flex-col   absolute w-[40%] left-[60%] bottom-20  ">
             <div className="border-b w-full max-w-md border-b-gray-400 items-center py-2 capitalize text-sm text-white flex justify-between">
-              <Link href="/projects">view all</Link>
+              <LinkTransition href="/projects">view all</LinkTransition>
               <FaArrowRight className=" w-3 h-3 text-white" />
             </div>
+
             <div className=" flex flex-col gap-2">
               <div className=" mt-2">
                 <Tech list={projects[index].iconLists} />
@@ -129,8 +131,8 @@ const MyWork = () => {
               <h2 className="text-3xl py-1 font-bold text-white text-center md:text-left h-14 heading-project">
                 {charsTospans(
                   projects[index].title,
-                  "text-3xl lg:text-6xl font-normal text-white text-center md:text-left",
-                  "",
+                  "text-3xl lg:text-6xl font-normal  text-white text-center md:text-left",
+                  "w-[10px]",
                   "h-16",
                   "heading-project"
                 )}
@@ -147,12 +149,11 @@ const MyWork = () => {
             width="w-[10px]"
             text="Just a few of my projects"
           />
-          <SpaceBtn>
-            {" "}
-            <Link className=" text-white z-20" href={"/projects"}>
-              View More
-            </Link>
-          </SpaceBtn>
+          <LinkTransition href={"/projects"}>
+            <SpaceBtn>
+              <span className=" text-white z-20"> View More</span>
+            </SpaceBtn>
+          </LinkTransition>
         </div>
       </MaxWidthWrapper>
       <MaxWidthWrapper noPadding className=" flex lg:flex-row flex-col items-center justify-between">
@@ -171,158 +172,3 @@ const MyWork = () => {
 
 export default MyWork;
 
-// "use client";
-// import React, { useEffect } from "react";
-// import "../splitscreen.css";
-// import { ScrollTrigger } from "gsap/all";
-// import gsap from "gsap";
-// import Image from "next/image";
-// import { projects } from "../constants";
-// import MaxWidthWrapper from "./MaxWidthWrapper";
-// import { charsTospans } from "./Paragraph";
-// import Tech from "./Tech";
-// const MyWork = () => {
-//   const [index, setIndex] = React.useState(0);
-//   useEffect(() => {
-//     const ctx = gsap.context(() => {
-//       ScrollTrigger.matchMedia({
-//         //desktop
-//         "(min-width: 601px)": () => {
-//           const sections = gsap.utils.toArray(".desktopContentSection").slice(1);
-//           const photos = gsap.utils.toArray(".desktopPhoto:not(:first-child)");
-//           // a container that includes all photos and as i scroll i ill move the corresponding photo to the top to appear
-//           gsap.set(photos, { yPercent: 100 });
-//           ScrollTrigger.create({
-//             trigger: ".gallery",
-//             scroller: ".main-container",
-//             start: "top top",
-//             pin: ".right",
-//             end: "bottom bottom",
-//             markers: true,
-//           });
-//           sections.forEach((section, i) => {
-//             const animation = gsap
-//               .timeline()
-//               .to(section.querySelectorAll(".heading-project span"), { y: 0, opacity: 1, stagger: { amount: 0.4 } })
-//               .to(photos[i], { yPercent: 0 }, "<");
-//             ScrollTrigger.create({
-//               trigger: section.querySelector("h2"),
-//               scroller: ".main-container",
-//               start: "top 80%",
-//               end: "top 10%",
-//               markers: true,
-//               scrub: true,
-//               animation,
-//               onEnter: () => setIndex(i),
-//               onEnterBack: () => setIndex(i),
-//             });
-//           });
-//         },
-//       });
-//     });
-//     return () => ctx.revert();
-//   }, []);
-//   return (
-//     <div className="  relative bg-mainBg">
-//       {/* <div
-//         className=" absolute  bgchange inset-0 grayscale w-full h-full"
-//         style={{
-//           backgroundImage: `url(${Array.isArray(projects[index].img) ? projects[index].img[1] : projects[index].img})`,
-//           backgroundSize: "cover",
-//           backgroundPosition: "center",
-//           backgroundRepeat: "no-repeat",
-//         }}
-//       ></div> */}
-
-//       <MaxWidthWrapper className="gallery">
-//         <div className="right">
-//           {/* <div className="mobileContent">
-//             <div className="mobilePhoto red"></div>
-//             <h1>Red</h1>
-//             <p>
-//               Red is a color often associated with strong emotions such as passion, love, and anger. It's a bold and
-//               attention-grabbing color that can evoke feelings of excitement, warmth, and energy.
-//             </p>
-
-//             <div className="mobilePhoto green"></div>
-//             <h1>Green</h1>
-//             <p>
-//               Green is a color that is often associated with nature, growth, and harmony. It is a calming and relaxing
-//               color that can evoke feelings of balance, stability, and freshness. In color psychology, green is said to
-//               represent balance and stability, making it a popular choice for branding and marketing in the health and
-//               wellness industry.{" "}
-//             </p>
-
-//             <div className="mobilePhoto pink"></div>
-//             <h1>Pink</h1>
-//             <p>
-//               Pink is a color that is often associated with femininity, romance, and sweetness. It is a softer and more
-//               delicate shade of red that can evoke feelings of warmth, love, and nurturing. In the world of branding and
-//               marketing, pink is often used to target a female audience or to promote products that are associated with
-//               beauty, love, or romance.
-//             </p>
-
-//             <div className="mobilePhoto blue"></div>
-//             <h1>Blue</h1>
-//             <p>
-//               Blue is a color that is often associated with calmness, trust, and reliability. It is a peaceful and
-//               serene color that can evoke feelings of stability, security, and professionalism. In color psychology,
-//               blue is said to represent loyalty and trust, making it a popular choice for branding and marketing in the
-//               finance and technology industries.
-//             </p>
-//           </div> */}
-//           <div className="desktopPhotos">
-//             {projects.map((project, i) => (
-//               <Image
-//                 key={i}
-//                 src={Array.isArray(project.img) ? project.img[0] : project.img}
-//                 alt={project.title}
-//                 fill
-//                 className="desktopPhoto  object-cover"
-//               />
-//             ))}
-//           </div>
-//         </div>
-//         <div className="left flex items-center">
-//           <div className="desktopContent">
-//             {index === 0 && (
-//               <div className=" ">
-//                 <h2 className="text-3xl font-bold text-white text-center md:text-left h-14 heading-project">
-//                   {charsTospans(
-//                     projects[0].title,
-//                     "text-3xl font-bold text-white text-center md:text-left",
-//                     "",
-//                     "h-14",
-//                     "heading-project"
-//                   )}
-//                 </h2>
-//                 <Tech list={projects[0].iconLists} />
-//               </div>
-//             )}
-
-//             {projects.slice(0, 4).map((project, i) => (
-//               <div key={i} className={`desktopContentSection  ${i === index ? "active" : ""}`}>
-//                 <h2 className="flex flex-col h-fit">
-//                   {charsTospans(
-//                     project.title,
-//                     "text-4xl  opacity-0 translate-y-8 font-bold text-white  text-center md:text-left",
-//                     "",
-//                     "h-20",
-//                     "heading-project"
-//                   )}
-//                   {index === i && <Tech list={project.iconLists} />}
-//                 </h2>{" "}
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </MaxWidthWrapper>
-
-//       <div className="spacer"></div>
-//       <div className="spacer"></div>
-//       <div className="spacer"></div>
-//     </div>
-//   );
-// };
-
-// export default MyWork;

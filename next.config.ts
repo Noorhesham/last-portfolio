@@ -9,11 +9,13 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  // output: "export",
+  output: "export",
+  trailingSlash: true, //
 };
 
 export default nextConfig;

@@ -1,6 +1,5 @@
-import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
-import MotionContainer from "./MotionContainer";
+import { cn } from "../lib/utils";
 
 interface GridContainerProps {
   children: ReactNode;
@@ -27,11 +26,7 @@ const GridContainer: React.FC<GridContainerProps> = ({ children, cols = 4, class
       13: "grid-cols-1 lg:grid-cols-13",
     }[cols] || "grid-cols-4";
 
-  return motion ? (
-    <MotionContainer className={cn(className, `grid w-full ${gridColsClass} `)}>{children}</MotionContainer>
-  ) : (
-    <div className={cn(className, `grid w-full ${gridColsClass} `)}>{children}</div>
-  );
+  return <div className={cn(className, `grid w-full ${gridColsClass} `)}>{children}</div>;
 };
 
 export default GridContainer;

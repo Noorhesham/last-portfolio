@@ -122,7 +122,7 @@ const Intro = () => {
                       icon: <FaLinkedin className=" text-white w-6 h-6" />,
                     },
                     {
-                      title: "Resume",
+                      title: "Facebook",
                       href: "https://www.facebook.com/profile.php?id=100006306765558",
                       icon: <FaFacebook className=" w-6 h-6 text-white" />,
                     },

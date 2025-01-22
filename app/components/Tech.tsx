@@ -13,6 +13,7 @@ const Tech = ({ list }: { list: any }) => {
           <Image fill src={icon} alt={icon} className=" object-cover p-2" />
         </div>
       ))}
+      
     </div>
   );
 };

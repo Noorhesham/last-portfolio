@@ -9,13 +9,16 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { tech } from "@/public";
 import Image from "next/image";
 import InfiniteMoveSection from "./InfinteMove";
-import { IconLanguage } from "@tabler/icons-react";
 import { Globe } from "./Globe";
 import Switcher from "./Switcher";
 import CopyEmail from "./CopyEmail";
 import { FcContacts } from "react-icons/fc";
 import MoleskineNotebooks from "./Books";
 import AnimatedImage from "./AnimatedImage";
+import { FaLanguage } from "react-icons/fa";
+import Counter from "./Counter";
+import LinkTransition from "./LinkTransition";
+import SpaceBtn from "./SpaceBtn";
 
 const Me = () => {
   useEffect(() => {
@@ -66,7 +69,7 @@ const Me = () => {
             <h2 className=" text-muted-foreground">BEYOND PORTFOLIO</h2>
             <h3 className=" text-2xl lg:text-4xl">Let's know more about me</h3>
           </div>
-          <Card nohover icon={<IconLanguage />} title={"Spoken Languages"} paragraph="Watachiwa Noor des !">
+          <Card nohover icon={<FaLanguage />} title={"Spoken Languages"} paragraph="Watachiwa Noor des !">
             <div className=" w-full h-64 flex items-center justify-center relative mt-5">
               <Globe className=" absolute -right-10 -bottom-full  " />
             </div>
@@ -119,7 +122,7 @@ const Me = () => {
       </MaxWidthWrapper>
       <MaxWidthWrapper className=" relative flex lg:flex-row flex-col items-start justify-between">
         <div className=" relative h-96 w-full">
-        <AnimatedImage data="coffe.json" className=" max-h-96  w-full h-full" />
+          <AnimatedImage data="coffe.json" className=" max-h-96  w-full h-full" />
         </div>
         <p className=" lg:text-2xl   capitalize  gap-1   m-auto font-semibold text-gray-800 max-w-xl">
           Now, I'm pushing boundaries with Next.js,
@@ -128,6 +131,15 @@ const Me = () => {
           tools. 🚀
         </p>
       </MaxWidthWrapper>
+      <div className="flex my-5 flex-col items-center">
+      <Counter />
+      <LinkTransition className=" mb-5 mx-auto" href={"/about"}>
+        <SpaceBtn>
+          {" "}
+          <span className=" text-white z-20">More About My Experience!</span>
+        </SpaceBtn>
+      </LinkTransition>
+      </div>
     </section>
   );
 };

@@ -15,6 +15,7 @@ export const LoaderProvider = ({ children }: { children: React.ReactNode }) => {
 
     return () => clearTimeout(t);
   }, []);
+
   if (loaded) return <Loader />;
   else return children;
 };

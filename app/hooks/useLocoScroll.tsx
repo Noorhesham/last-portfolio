@@ -2,10 +2,12 @@
 import { useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 const useLocoScroll = () => {
   gsap.registerPlugin(ScrollTrigger);
   const [locoScroll, setLocoScroll] = useState<LocomotiveScroll | null>(null);
   const [progress, setProgress] = useState(0);
+  const path = usePathname();
   useLayoutEffect(() => {
     if (typeof window === "undefined" || typeof global?.document === "undefined") return;
     //importing locomotive scroll
@@ -63,7 +65,7 @@ const useLocoScroll = () => {
         locoScrollInstance.destroy(); // Destroy Locomotive Scroll instance
       }
     };
-  }, []);
+  }, [path]);
 
   return { locoScroll, progress };
 };

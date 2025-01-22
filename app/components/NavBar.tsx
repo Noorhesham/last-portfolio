@@ -5,7 +5,12 @@ import PhoneNav from "./PhoneNav";
 import Logo from "./Logo";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
-export const NAV_LINKS = ["HOME", "about us", "Projects", "Media center", "News", "Contact us"];
+export const NAV_LINKS = [
+  { text: "HOME", link: "/" },
+  { text: "About", link: "/about" },
+  { text: "Projects", link: "/projects" },
+  { text: "Contact", link: "/contact" },
+];
 const NavBar = () => {
   return (
     <header>
@@ -16,10 +21,10 @@ const NavBar = () => {
             <Logo />
           </div>
           <div className=" flex  items-center gap-5">
-            <PhoneNav />
             <a href="/noorhesham.pdf" download="Noor-Hesham-cv">
               <Button className=" text-sm">MY CV ?</Button>
             </a>
+            <PhoneNav />
           </div>
         </MaxWidthWrapper>
       </nav>
