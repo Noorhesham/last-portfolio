@@ -6,7 +6,7 @@ import ImageSlider from "./ImageSlider";
 import Back from "./Back";
 import Paragraph from "./Paragraph";
 
-const ProjectDescription = ({ project, moveback }: { project: any; moveback: () => void }) => {
+const ProjectDescription = ({ project }: { project: any }) => {
   return (
     <div className=" text-gray-50  h-full mb-12 mt-10 items-center justify-center  w-[80vw]" key={project.id}>
       <Back />

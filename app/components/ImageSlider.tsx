@@ -49,7 +49,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, isActive }) => {
   };
 
   return images.map((img, index) => (
-    <Image
+    <Image loading="lazy"
       key={index}
       src={img}
       alt={`Slide ${index + 1}`}

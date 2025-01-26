@@ -6,12 +6,14 @@ import ServicesHover from "../components/Certificate";
 
 const page = () => {
   return (
-    <section>
+    <section className=" bg-mainBg">
       {" "}
-      <WhoAmI />
-      <Me />
-      <MyJourney />
-      <ServicesHover />
+      <div className=" pt-20">
+        <WhoAmI />
+        <Me />
+        <MyJourney />
+        <ServicesHover />
+      </div>
     </section>
   );
 };

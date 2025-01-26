@@ -95,7 +95,7 @@ export const SkeletonOne = () => {
       <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
-          <Image
+          <Image 
             src="/linear.webp"
             alt="header"
             width={800}

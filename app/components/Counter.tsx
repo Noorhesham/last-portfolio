@@ -62,7 +62,7 @@ const Counter = () => {
   }, []);
   return (
     <MaxWidthWrapper>
-      <GridContainer cols={5} className=" gap-8 statttt justify-center p-8  rounded-lg">
+      <GridContainer cols={5} className=" gap-8 statttt justify-center  rounded-lg">
         {stats.map((stat, index) =>
           stat.link ? (
             <Link
@@ -85,7 +85,7 @@ const Counter = () => {
             >
               <div className="mb-4">{stat.icon}</div>
               <div className="flex items-center gap-1">
-                <span>{stat.prefix}</span> <div className="text-4xl font-bold count text-maincolor">0</div>
+                <span>{stat.prefix}</span> <div className=" text-2xl lg:text-4xl font-bold count text-maincolor">0</div>
               </div>
               <div className="mt-2 text-lg font-medium text-gray-700">{stat.title}</div>
             </div>

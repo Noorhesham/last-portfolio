@@ -3,7 +3,6 @@
 }
 
 .left {
-  /* outline:2px solid red; */
   width: 50%;
 }
 
@@ -21,15 +20,10 @@
 }
 
 .desktopContentSection {
-  /* outline:2px solid green; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.desktopContentSection:nth-child(even) {
-  /* background:#ccc; */
 }
 
 .desktopPhotos {

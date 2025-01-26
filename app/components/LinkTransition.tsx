@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import gsap from "gsap";
-import { useSmoothScroll } from "../context/ScrollProviderContext";
 
 const animationEnter = (): Promise<void> => {
   return new Promise((resolve) => {
@@ -43,7 +42,6 @@ const LinkTransition = ({
 }) => {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
-  const { locoScroll } = useSmoothScroll();
 
   const handleTransition = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();

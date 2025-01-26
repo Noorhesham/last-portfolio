@@ -34,7 +34,7 @@ const WhoAmI = () => {
         </div>
       </MaxWidthWrapper>
       <a href="/noorhesham.pdf" className=" mx-auto self-center" download="Noor-Hesham-cv">
-        <Button className=" rounded-full px-4 py-8 text-lg lg:text-3xl my-6">Download CV ?</Button>
+        <Button className=" rounded-full px-6 py-3 text-lg lg:text-xl my-6">Download CV ?</Button>
       </a>{" "}
     </section>
   );

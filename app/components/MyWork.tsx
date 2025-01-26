@@ -1,14 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
 import "../splitscreen.css";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Image from "next/image";
 import { projects } from "../constants";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Paragraph, { charsTospans } from "./Paragraph";
 import { FaArrowRight } from "react-icons/fa";
-import Link from "next/link";
 import SpaceBtn from "./SpaceBtn";
 import Header from "./Header";
 import AnimatedImage from "./AnimatedImage";
@@ -16,11 +15,14 @@ import { useIsMobile } from "../hooks/useIsMobile";
 import WorkPhone from "./WorkPhone";
 import Tech from "./Tech";
 import LinkTransition from "./LinkTransition";
+
 const MyWork = () => {
   const [index, setIndex] = React.useState(0);
   const { isMobile } = useIsMobile();
   useEffect(() => {
     if (isMobile) return;
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+
     const ctx = gsap.context(() => {
       const height = document.querySelector(".scrolly")?.clientHeight;
       const images = gsap.utils.toArray(".bgimage");
@@ -37,9 +39,7 @@ const MyWork = () => {
       sections.forEach((section, i) => {
         const animation = gsap.timeline({});
 
-        animation
-          .fromTo(document.querySelector(".heading-project"), { opacity: 0 }, { opacity: 1 })
-          .fromTo(document.querySelectorAll(".techstack"), { opacity: 0 }, { opacity: 1 });
+        animation.fromTo(document.querySelector(".heading-project"), { opacity: 0 }, { opacity: 1 });
 
         ScrollTrigger.create({
           trigger: section,
@@ -65,16 +65,15 @@ const MyWork = () => {
       });
     });
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
   if (isMobile) return <WorkPhone />;
   return (
     <div className="bg-mainBg">
-      <MaxWidthWrapper noPadding className="   text-sm lg:text-base ">
+      <MaxWidthWrapper className="   text-base ">
         <Header text="My Work" text2="Most Recent Work By Noor Boi" />
       </MaxWidthWrapper>
-      {isMobile ? (
-        <WorkPhone />
-      ) : (
+      <>
+        {" "}
         <section className="  flex secsec  items-center h-screen overflow-hidden justify-between relative bg-mainBg">
           {projects.slice(0, 4).map((project, i) => (
             <div key={i} className={`bgimage scale-110  opacity-0  fixed inset-0  bg-move  grayscale w-[60%] h-screen`}>
@@ -140,7 +139,8 @@ const MyWork = () => {
             </div>
           </MaxWidthWrapper>
         </section>
-      )}
+      </>
+
       <MaxWidthWrapper className=" m-auto  w-full">
         <div className=" border-t py-5 w border-gray-400 flex items-center gap-5 flex-col">
           <Paragraph
@@ -171,4 +171,3 @@ const MyWork = () => {
 };
 
 export default MyWork;
-

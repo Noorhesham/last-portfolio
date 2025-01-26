@@ -93,11 +93,11 @@ export const projects = [
   {
     id: 1123,
     title: `Orient | Ecommerce`,
-    description:
+    des:
       "I fully developed the front-end for this e-commerce platform as my first project at Right Mind Company. The website is designed to provide a complete shopping experience with features like caching, filtering, pagination, user data updates, order management, payment processing, and login/sign-up functionality with 2FA and forgot password support. It uses TanStack Query for caching and updating user data, with a complex mechanism for changing dates. The platform also includes blogs, wishlists, and real-time notifications using FCM. This project showcases my expertise in building a fully-featured e-commerce site.",
     img: ["/orient1.png", "/orientphone.png", "/orient2.png", "/orient3.png"],
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/fm.svg", "/next.webp", "/query.png"],
-    link: "https://t1.orient-paints.com/en",
+    link: "https://orient-nine.vercel.app/",
     git: "https://github.com/Noorhesham/orient",
   },
 

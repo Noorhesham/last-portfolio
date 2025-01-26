@@ -1,7 +1,6 @@
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
-
-export const Globe = ({ className }: { className?: string }) => {
+const  Globe = ({ className }: { className?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -48,3 +47,4 @@ export const Globe = ({ className }: { className?: string }) => {
     />
   );
 };
+export default Globe;

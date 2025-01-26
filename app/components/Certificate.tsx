@@ -53,7 +53,7 @@ export default function ServicesHover() {
     <MaxWidthWrapper className="flex flex-col md:flex-row gap-8 items-start p-4 md:p-8 text-white">
       {/* Left Side Image */}
       <div className="w-full md:w-2/3 h-[50vh] md:h-[80vh] relative">
-        <Image
+        <Image loading="lazy"
           fill
           src={testimonials[activeIndex].img}
           alt={testimonials[activeIndex].name}

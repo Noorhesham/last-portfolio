@@ -78,7 +78,9 @@ const PhoneNav = () => {
               </li>
             ))}
           </ul>
-          <span className=" text-sm  mt-auto mr-auto w-fit absolute bottom-2 left-2">+7 495 967 69 23</span>
+          <a href="tel:+201145838187" className=" text-sm text-white  mt-auto mr-auto w-fit absolute bottom-2 left-2">
+            +20 114 583 8187
+          </a>
         </div>
       }
     </>

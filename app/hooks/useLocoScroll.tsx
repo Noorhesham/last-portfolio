@@ -1,7 +1,7 @@
 "use client";
 import { useLayoutEffect, useState } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
 const useLocoScroll = () => {
   gsap.registerPlugin(ScrollTrigger);

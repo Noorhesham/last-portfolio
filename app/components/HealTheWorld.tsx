@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import AnimatedImage from "./AnimatedImage";
 import Clouds from "./Clouds";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const dreams = [
   "Heal the World",

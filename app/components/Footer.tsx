@@ -12,23 +12,17 @@ import SpaceBtn from "./SpaceBtn";
 const Footer = () => {
   const firstText = React.useRef<HTMLParagraphElement>(null);
   const secondText = React.useRef<HTMLParagraphElement>(null);
-  const all = React.useRef<HTMLDivElement>(null);
-  let xPercent = 0;
-  let direction = -1;
+
   useEffect(() => {
-    requestAnimationFrame(animate);
+    gsap.to([firstText.current, secondText.current], {
+      xPercent: -100,
+      repeat: -1,
+      duration: 15,
+      ease: "none",
+      repeatDelay: 0,
+    });
   }, []);
-  const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
-    } else if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
-  };
+
   return (
     <footer className="bg-[#171719] relative overflow-hidden h-screen">
       <div className=" text-white h-full">

@@ -1,10 +1,11 @@
-import Intro from "./components/Intro";
-import MyWork from "./components/MyWork";
-import Youtube from "./components/Youtube";
-import Me from "./components/Me";
-import WhoAmI from "./components/WhoAmI";
-import HealTheWorld from "./components/HealTheWorld";
-
+"use client";
+import dynamic from "next/dynamic";
+const Intro = dynamic(() => import("./components/Intro"));
+const MyWork = dynamic(() => import("./components/MyWork"));
+const Me = dynamic(() => import("./components/Me"));
+const WhoAmI = dynamic(() => import("./components/WhoAmI"));
+const Youtube = dynamic(() => import("./components/Youtube"));
+const HealTheWorld = dynamic(() => import("./components/HealTheWorld"));
 export default function Home() {
   return (
     <section className="bg-mainBg relative">

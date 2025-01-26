@@ -26,6 +26,13 @@ body {
   clip-path: circle(55% at 50% 0);
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .circle1 {
+    clip-path: none; /* Removes the clip-path on mobile */
+  }
+}
+
 .pulsating-circle {
   position: relative;
 

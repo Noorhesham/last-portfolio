@@ -6,9 +6,10 @@ import Paragraph from "./Paragraph";
 import { FaYoutube } from "react-icons/fa";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "../hooks/useIsMobile";
 const items = [
   {
     img: "/grid-black-background-neon-squares-5k-8k-7680x4320-2903 (1).png",
@@ -21,7 +22,7 @@ const items = [
 ];
 const Youtube = () => {
   const youtubeRef = useRef(null);
-
+  const { isMobile } = useIsMobile();
   useEffect(() => {
     const chars = youtubeRef.current.querySelectorAll(".char");
 
@@ -33,6 +34,7 @@ const Youtube = () => {
         repeat: -1,
         stagger: 0.1,
         ease: "power1.inOut",
+        delay: 1,
       });
       gsap.from(".naruto", {
         x: 400,
@@ -48,9 +50,14 @@ const Youtube = () => {
         trigger: ".channel",
         start: "top 80%",
         end: "bottom top",
-        animation: gsap.from(".channel", { scale: 0.4, rotate: -90, opacity: 0 }),
+        animation: gsap.from(".channel", {
+          scale: 0.8,
+          opacity: 0.5,
+          ease: "power1.out",
+        }),
       });
       const media = gsap.matchMedia();
+
       media.add("(min-width: 768px)", () => {
         gsap
           .timeline({
@@ -113,45 +120,41 @@ const Youtube = () => {
               ))}
             </span>
           </h2>
-          <Paragraph
-            height="h-12"
-            className="flex flex-col items-start text-xl lg:text-2xl"
-            width=" w-[5px] lg:w-[15px]"
-            text="I love creating content!<br>Publishing tutorials, guiding aspiring developers to<br>learn fullstack development."
-          />
-          <Paragraph
-            height="h-12"
-            className=" capitalize text-xl lg:text-2xl  text-maincolor"
-            width=" w-[5px] lg:w-[15px]"
-            text="sharing knowledge every week with<br> a new video."
-          />
+
+            <p className=" max-w-lg capitalize text-xl lg:text-2xl  text-white">
+            I love creating content! Publishing tutorials,guiding aspiring developers to learn fullstack development.
+          </p>
+          <p className=" max-w-lg capitalize text-xl lg:text-2xl  text-maincolor">
+            sharing knowledge every week witha new video.
+          </p>
           <Button className=" w-fit bg-red-600 text-white capitalize font-semibold  rounded-full hover:bg-red-400  text-lg">
             <Link href="https://www.youtube.com/@noorboi6706/videos" target="_blank">
               Subscribe
             </Link>
           </Button>
         </div>
-        <div className=" h-[500px] naruto  lg:absolute w-full lg:-right-2 lg:top-20 lg:w-1/3">
-          <Image src={"/Blankhey.png"} fill className=" object-contain" alt="image" />
+        <div className=" h-[500px] naruto will-change-transform  lg:absolute w-full lg:-right-2 lg:top-20 lg:w-1/3">
+          <Image loading="lazy" src={"/Blankhey.png"} fill className=" object-contain" alt="image" />
         </div>
       </MaxWidthWrapper>
       <MaxWidthWrapper className="flex youtube2 w-full relative border-b border-[#333] pb-10 overflow-hidden items-center justify-between">
-        <div className="flex flex-col gap-6">
+        <div className="flex w-full  flex-col gap-6">
           <div className="flex lg:flex-row flex-col gap-3 items-center">
-            <div className="relative channel w-44 h-44 rounded-full overflow-hidden">
-              <Image src={"/channels4_profile (3).jpg"} fill alt="naruto" />
+            <div className="relative will-change-transform channel w-44 h-44 rounded-full overflow-hidden">
+              <Image loading="lazy" src={"/channels4_profile (3).jpg"} fill alt="naruto" />
             </div>
             <div className="flex flex-col gap-2">
               <Paragraph
-                height="h-14"
-                className="flex flex-col  text-4xl items-start "
+                animate={isMobile ? false : true}
+                height=" h-10 lg:h-14"
+                className="flex flex-col  text-2xl lg:text-4xl items-start "
                 width="w-[15px]"
                 text="Some of My recent Videos :) "
               />{" "}
               <span className=" caption-top capitalize text-muted-foreground">{"(my videos are in arabic)"}</span>
             </div>
           </div>
-          <div className="flex lg:flex-row    lg:translate-x-32 flex-col slideshow3  z-[49]  w-full  top-40  gap-5 lg:gap-10">
+          <div className="flex lg:flex-row  items-center   lg:translate-x-32 flex-col slideshow3  z-[49]  w-full  top-40  gap-5 lg:gap-10">
             {" "}
             {Array.from({ length: 4 }).map((_, index) => (
               <Link
@@ -167,7 +170,7 @@ const Youtube = () => {
                   style={{ zIndex: index % 2 === 0 ? "52" : "48" }}
                   className="  overflow-hidden w-full lg:w-[50vw] rounded-2xl  relative  h-64 lg:h-[26rem] "
                 >
-                  <Image fill className="slideimg object-cover" src={items[index].img} alt="" />{" "}
+                  <Image loading="lazy" fill className="slideimg object-cover" src={items[index].img} alt="" />{" "}
                   <div
                     ref={(el) => (overlayRefs.current[index] = el)}
                     className="absolute inset-0 w-0 flex items-center justify-center
