@@ -20,8 +20,15 @@ const Globe = lazy(() => import("./Globe"));
 import CopyEmail from "./CopyEmail";
 import MoleskineNotebooks from "./Books";
 import InfiniteMoveSection from "./InfinteMove";
-import AnimatedImage from "./AnimatedImage";
-// const CopyEmail = dynamic(() => import("./CopyEmail"), { ssr: false });
+import dynamic from "next/dynamic";
+const AnimatedImage = dynamic(() => import("./AnimatedImage"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-96  flex items-center rounded-full overflow-hidden justify-center relative mt-5">
+      <Image loading="lazy" src={"/frontend.png"} fill className="object-cover" alt="laptop" />
+    </div>
+  ),
+}); // const CopyEmail = dynamic(() => import("./CopyEmail"), { ssr: false });
 // const Globe = dynamic(() => import("./Globe"), { ssr: false });
 // const MoleskineNotebooks = dynamic(() => import("./Books"), { ssr: false });
 // Lazy load components

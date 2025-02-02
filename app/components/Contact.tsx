@@ -20,7 +20,7 @@ const Contact = () => {
   return (
     <section className=" relative bg-mainBg">
       <div className="  relative smoke -top-14 h-96 w-full left-1/2 -translate-x-1/2">
-        <Image src={"/byesmoke.svg"} fill className=" object-contain" alt="smoke" />
+        <Image loading="lazy" src={"/byesmoke.svg"} fill className=" object-contain" alt="smoke" />
       </div>
       <div className=" -mt-28  ">
         <MaxWidthWrapper noPadding className="flex justify-center items-center mx-auto flex-col gap-4">

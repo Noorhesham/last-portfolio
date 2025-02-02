@@ -29,7 +29,7 @@ const WorkPhone = ({ full }: { full?: boolean }) => {
               />
             </LinkTransition>
             <div className=" px-4 p-2">
-              <Paragraph text={project.title} height="h-10" />
+              <Paragraph animate={false} text={project.title} height="h-10" />
               <Tech list={project.iconLists} />
               <Visit project={project} />
             </div>

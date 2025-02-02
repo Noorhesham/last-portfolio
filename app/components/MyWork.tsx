@@ -10,18 +10,25 @@ import Paragraph, { charsTospans } from "./Paragraph";
 import { FaArrowRight } from "react-icons/fa";
 import SpaceBtn from "./SpaceBtn";
 import Header from "./Header";
-import AnimatedImage from "./AnimatedImage";
+const AnimatedImage = dynamic(() => import("./AnimatedImage"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-96  flex items-center rounded-full overflow-hidden justify-center relative mt-5">
+      <Image loading="lazy" src={"/frontend.png"} fill className="object-cover" alt="laptop" />
+    </div>
+  ),
+});
 import { useIsMobile } from "../hooks/useIsMobile";
 import WorkPhone from "./WorkPhone";
 import Tech from "./Tech";
 import LinkTransition from "./LinkTransition";
+import dynamic from "next/dynamic";
 
 const MyWork = () => {
   const [index, setIndex] = React.useState(0);
   const { isMobile } = useIsMobile();
   useEffect(() => {
     if (isMobile) return;
-    ScrollTrigger.getAll().forEach((t) => t.kill());
 
     const ctx = gsap.context(() => {
       const height = document.querySelector(".scrolly")?.clientHeight;
@@ -32,7 +39,7 @@ const MyWork = () => {
         start: "top top",
         end: `+=${height * 1.5}`,
         pin: true,
-        animation: gsap.to(".scrolly", { y: -height }),
+        animation: gsap.to(".scrolly", { y: -height * 1.5 }),
         scrub: true,
       });
       const sections = gsap.utils.toArray(".desktopContentSection");
@@ -44,7 +51,7 @@ const MyWork = () => {
         ScrollTrigger.create({
           trigger: section,
           scroller: ".main-container",
-          start: "top 50%",
+          start: "top 65%",
           end: "bottom 80%",
 
           scrub: true,
@@ -64,7 +71,10 @@ const MyWork = () => {
         });
       });
     });
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, [isMobile]);
   if (isMobile) return <WorkPhone />;
   return (

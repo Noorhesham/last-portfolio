@@ -124,7 +124,7 @@ function CallMe() {
               ref={formRef}
               className="flex flex-col w-full items-start lg:items-stretch gap-10 flex-1 lg:w-[50rem] relative z-50"
             >
-              <div className="flex flex-col gap-4" ref={formWrapperRef}>
+              <div className=" w-full flex flex-col gap-4" ref={formWrapperRef}>
                 <input
                   className="p-4 px-8 w-full text-gray-100 bg-[rgb(4,7,29)] rounded-lg border-[#5629d9] border-2 outline-none"
                   type="text"

@@ -1,5 +1,5 @@
 "use client";
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic"; // Import dynamic for lazy loading
 const AnimatedImage = dynamic(() => import("./AnimatedImage"), {
   ssr: false,
@@ -19,8 +19,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TvMove from "./Infinte2";
 import { useIsMobile } from "../hooks/useIsMobile";
 import Image from "next/image";
-import FloatingDock from "./ui/floating-dock";
-
+const FloatingDock = dynamic(() => import("./ui/floating-dock"), {
+  ssr: false,
+});
 const socials = [
   {
     title: "GitHub",
@@ -100,9 +101,11 @@ const Intro = () => {
         end: "bottom top",
       });
     });
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
-  const floatingDock = React.useMemo(() => <FloatingDock items={socials} />, []);
   return (
     <section className="bg-mainBg">
       <section className="spacebg overflow-hidden bg-mainBg min-h-screen lg:block flex flex-col h-full relative">
@@ -128,13 +131,14 @@ const Intro = () => {
               <div className="flex mt-16 flex-col items-start gap-3">
                 <GoArrowDownRight className=" text-white text-xl mr-4" />
                 <Paragraph
+                  delay={1}
                   text="Develop Your<br>Dream App<br>Now"
                   height="h-6"
                   className=" !items-start text-lg uppercase font-semibold"
                 />
                 <div className="flex items-center gap-2">
                   <Ring />
-                  <Paragraph text="open to work" height="h-6" className=" text-gray-200" />
+                  <Paragraph text="open to work" delay={0.5} height="h-6" className=" text-gray-200" />
                 </div>
               </div>
             </div>
@@ -144,13 +148,15 @@ const Intro = () => {
               <div className="overflow-hidden relative h-14">
                 <Paragraph
                   height=" h-10 lg:h-14"
-                  animate={isFirst}
+                  animate={false}
                   text={specialities[index].text}
                   className={`header ${specialities[index].color}   !flex-nowrap text-nowrap  font-semibold 
                 w-full`}
                 />
               </div>
-              <div className=" mt-4 ml-auto relative z-50">{floatingDock}</div>
+              <div className=" mt-4 ml-auto relative z-50">
+                <FloatingDock items={socials} />
+              </div>
             </div>
           </FlexWrapper>
           {isMobile ? null : (

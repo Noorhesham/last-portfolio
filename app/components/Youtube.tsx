@@ -38,6 +38,7 @@ const Youtube = () => {
       });
       gsap.from(".naruto", {
         x: 400,
+        delay: 0.3,
         scrollTrigger: {
           trigger: ".youtube",
           start: "top 10%",
@@ -121,7 +122,7 @@ const Youtube = () => {
             </span>
           </h2>
 
-            <p className=" max-w-lg capitalize text-xl lg:text-2xl  text-white">
+          <p className=" max-w-lg capitalize text-xl lg:text-2xl  text-white">
             I love creating content! Publishing tutorials,guiding aspiring developers to learn fullstack development.
           </p>
           <p className=" max-w-lg capitalize text-xl lg:text-2xl  text-maincolor">
@@ -144,13 +145,8 @@ const Youtube = () => {
               <Image loading="lazy" src={"/channels4_profile (3).jpg"} fill alt="naruto" />
             </div>
             <div className="flex flex-col gap-2">
-              <Paragraph
-                animate={isMobile ? false : true}
-                height=" h-10 lg:h-14"
-                className="flex flex-col  text-2xl lg:text-4xl items-start "
-                width="w-[15px]"
-                text="Some of My recent Videos :) "
-              />{" "}
+              <p className="text-white text-2xl lg:text-4xl">Some of My recent Videos {":)"}</p>
+
               <span className=" caption-top capitalize text-muted-foreground">{"(my videos are in arabic)"}</span>
             </div>
           </div>
