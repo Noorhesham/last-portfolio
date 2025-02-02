@@ -103,7 +103,6 @@ const Intro = () => {
     });
     return () => {
       ctx.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
   return (

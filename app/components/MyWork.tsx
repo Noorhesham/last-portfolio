@@ -73,7 +73,6 @@ const MyWork = () => {
     });
     return () => {
       ctx.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, [isMobile]);
   if (isMobile) return <WorkPhone />;

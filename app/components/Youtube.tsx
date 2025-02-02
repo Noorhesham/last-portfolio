@@ -36,30 +36,31 @@ const Youtube = () => {
         ease: "power1.inOut",
         delay: 1,
       });
-      gsap.from(".naruto", {
-        x: 400,
-        delay: 0.3,
-        scrollTrigger: {
-          trigger: ".youtube",
-          start: "top 10%",
-          end: "bottom bottom",
-          scroller: ".main-container",
-        },
-      });
-      ScrollTrigger.create({
-        scroller: ".main-container",
-        trigger: ".channel",
-        start: "top 80%",
-        end: "bottom top",
-        animation: gsap.from(".channel", {
-          scale: 0.8,
-          opacity: 0.5,
-          ease: "power1.out",
-        }),
-      });
+
       const media = gsap.matchMedia();
 
       media.add("(min-width: 768px)", () => {
+        ScrollTrigger.create({
+          scroller: ".main-container",
+          trigger: ".channel",
+          start: "top 80%",
+          end: "bottom top",
+          animation: gsap.from(".channel", {
+            scale: 0.8,
+            opacity: 0.5,
+            ease: "power1.out",
+          }),
+        });
+        gsap.from(".naruto", {
+          x: 400,
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: ".youtube",
+            start: "top 10%",
+            end: "bottom bottom",
+            scroller: ".main-container",
+          },
+        });
         gsap
           .timeline({
             scrollTrigger: {
