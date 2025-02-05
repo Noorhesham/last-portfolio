@@ -10,19 +10,13 @@ import Paragraph, { charsTospans } from "./Paragraph";
 import { FaArrowRight } from "react-icons/fa";
 import SpaceBtn from "./SpaceBtn";
 import Header from "./Header";
-const AnimatedImage = dynamic(() => import("./AnimatedImage"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-96  flex items-center rounded-full overflow-hidden justify-center relative mt-5">
-      <Image loading="lazy" src={"/frontend.png"} fill className="object-cover" alt="laptop" />
-    </div>
-  ),
-});
+
 import { useIsMobile } from "../hooks/useIsMobile";
 import WorkPhone from "./WorkPhone";
 import Tech from "./Tech";
 import LinkTransition from "./LinkTransition";
 import dynamic from "next/dynamic";
+import AnimatedImage from "./AnimatedImage";
 
 const MyWork = () => {
   const [index, setIndex] = React.useState(0);

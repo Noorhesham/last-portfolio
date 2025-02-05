@@ -23,9 +23,9 @@ const useLocoScroll = () => {
       smooth: true,
       multiplier: 1.5,
       //@ts-ignore
-      mobile: {
-        smooth: true,
-      },
+      // mobile: {
+      //   smooth: true,
+      // },
     });
     setLocoScroll(locoScrollInstance);
 

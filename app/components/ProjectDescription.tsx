@@ -8,12 +8,15 @@ import Paragraph from "./Paragraph";
 
 const ProjectDescription = ({ project }: { project: any }) => {
   return (
-    <div className=" text-gray-50  h-full mb-12 mt-10 items-center justify-center  w-[80vw]" key={project.id}>
+    <div
+      className=" text-gray-50  h-full mb-12 mt-14 lg:mt-10 items-center justify-center  w-full "
+      key={project.id}
+    >
       <Back />
-      <div className=" relative flex items-center justify-center  w-[80vw] overflow-hidden   mb-10">
+      <div className=" w-full relative flex items-center justify-center   overflow-hidden   mb-10">
         <div className=" grid grid-cols-1 lg:grid-cols-2 gap-3  w-full  z-10 justify-between items-center">
           {Array.isArray(project.img) ? (
-            <div className=" min-h-80 w-full h-full relative">
+            <div className="  min-h-80 w-full h-full relative">
               <ImageSlider isActive={true} images={project.img} />
             </div>
           ) : (

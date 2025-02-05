@@ -93,8 +93,7 @@ export const projects = [
   {
     id: 1123,
     title: `Orient | Ecommerce`,
-    des:
-      "I fully developed the front-end for this e-commerce platform as my first project at Right Mind Company. The website is designed to provide a complete shopping experience with features like caching, filtering, pagination, user data updates, order management, payment processing, and login/sign-up functionality with 2FA and forgot password support. It uses TanStack Query for caching and updating user data, with a complex mechanism for changing dates. The platform also includes blogs, wishlists, and real-time notifications using FCM. This project showcases my expertise in building a fully-featured e-commerce site.",
+    des: "I fully developed the front-end for this e-commerce platform as my first project at Right Mind Company. The website is designed to provide a complete shopping experience with features like caching, filtering, pagination, user data updates, order management, payment processing, and login/sign-up functionality with 2FA and forgot password support. It uses TanStack Query for caching and updating user data, with a complex mechanism for changing dates. The platform also includes blogs, wishlists, and real-time notifications using FCM. This project showcases my expertise in building a fully-featured e-commerce site.",
     img: ["/orient1.png", "/orientphone.png", "/orient2.png", "/orient3.png"],
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/fm.svg", "/next.webp", "/query.png"],
     link: "https://orient-nine.vercel.app/",
@@ -287,7 +286,7 @@ export const projects = [
     link: "https://highpoint.vercel.app/en",
     git: "https://github.com/Noorhesham/highpoint",
     video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7281006129864704000?compact=1",
-    img:['/courses1.png', '/courses2.png', '/courses3.png'],
+    img: ["/courses1.png", "/courses2.png", "/courses3.png"],
   },
   {
     id: 158,
@@ -338,7 +337,7 @@ export const projects = [
     iconLists: ["/next.webp", "/tail.svg", "/ts.svg", "/re.svg", "/fm.svg"],
     video: "https://www.youtube.com/embed/RvoeZVL6pec",
     id: 4333,
-    link: "https://link-treeclone-olive.vercel.app/profile/66780ff0b18f0237beef90e4",
+    link: "https://vega-nfc.vercel.app/",
   },
   {
     id: 123123,
