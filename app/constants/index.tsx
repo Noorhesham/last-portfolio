@@ -315,9 +315,8 @@ And the craziest part? I built all of this in just 1 day! 🏎️💨`,
       "/query.png",
     ],
     link: "https://muslim-kids.vercel.app/",
-    git: "https://github.com/Noorhesham/highpoint",
-    video:
-      "https://www.linkedin.com/posts/noor-elgendy-0aa84b207_webdev-nextjs-ecommerce-activity-7298746157734793217-lwxC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADSg3sIBZUFqyAUmUWOpL3J1iPEsEKlenpw",
+    git: "https://github.com/Noorhesham/children-store",
+    video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7298745408774668288?compact=1",
     img: [
       "/Screenshot 2025-02-22 101135.png",
       "/Screenshot 2025-02-22 101157 - Copy.png",
@@ -346,6 +345,19 @@ And the craziest part? I built all of this in just 1 day! 🏎️💨`,
     img: ["/animation1.png", "/animation2.png", "/animation3.png", "/animation4.png"],
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/logo.gif"],
     video: "https://www.youtube.com/embed/updZd8CuJl8?si=7WJDGn8Qml--ll-b",
+  },
+  {
+    id: 112358,
+    title: "Personal portfolio tutorial",
+    description:
+      "Youtube tutorial explaining how to customize a reusable templaet  portfolio for people to showcase thier work with gsap seo animations great fonts images eetc.",
+
+    techStack: ["GSAP", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Custom Scroll Animations"],
+    link: "https://noortries.netlify.app/",
+    git: "https://github.com/Noorhesham/Your-dream-Portfolio",
+    img: ["/port1.png", "/port5.png", "/port3.png", "/port14.png"],
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/logo.gif"],
+    video: "https://www.youtube.com/watch?v=_6qAAkPvNyg",
   },
   {
     id: 2,
