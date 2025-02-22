@@ -289,6 +289,43 @@ export const projects = [
     img: ["/courses1.png", "/courses2.png", "/courses3.png"],
   },
   {
+    id: 12360,
+    title: "Fullstack E Store For Kids with Next.js and MongoDB",
+    description: `🎉 Mission Complete: 1 Day Speedrun! 🚀
+After all the intense coding, debugging, and caffeinated decision-making… I’ve officially finished a full-fledged Islamic kids & toys e-commerce web app! 🎊👶🧸
+And not just any e-commerce app—this one’s a beast! 🦸‍♂️
+✅ Admin Dashboard? Done. CRUD everything! ✨
+✅ 1 Dynamic Form Component & 1 Super Clean Server Function ♻️ (because reusable code = happy dev life)
+✅ GSAP-powered eye-catching UI for kids (because boring interfaces are illegal :) )
+✅ Infinite Scroll, Search, Filter, Sort—because nobody likes clicking "Next Page" 100 times 🔄
+✅ Order Management, Email Notifications & Store Controls 🛒📩
+✅ Dynamic Currency Based on Location 🌎💰 (because no one wants to manually convert prices)
+✅ Super responsive admin panel (works on mobile, tablet, even your smart fridge…probably)
+And the craziest part? I built all of this in just 1 day! 🏎️💨`,
+
+    iconLists: [
+      "/re.svg",
+      "/tail.svg",
+      "/ts.svg",
+      "/three.svg",
+      "/fm.svg",
+      "/node.png",
+      "/idhHZwYUWa.png",
+      "/next.webp",
+      "/query.png",
+    ],
+    link: "https://muslim-kids.vercel.app/",
+    git: "https://github.com/Noorhesham/highpoint",
+    video:
+      "https://www.linkedin.com/posts/noor-elgendy-0aa84b207_webdev-nextjs-ecommerce-activity-7298746157734793217-lwxC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADSg3sIBZUFqyAUmUWOpL3J1iPEsEKlenpw",
+    img: [
+      "/Screenshot 2025-02-22 101135.png",
+      "/Screenshot 2025-02-22 101157 - Copy.png",
+      "/Screenshot 2025-02-22 101157.png",
+      "Screenshot 2025-02-22 101207.png",
+    ],
+  },
+  {
     id: 158,
     title: "Zentary Animation Clone | Award-Winning Tutorial Website",
     description:
